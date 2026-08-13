@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>글 목록 (2/2) · t3b01-dc-coin-guide</title>
+  <meta name="description" content="t3b01-dc-coin-guide에 올라온 글 목록입니다.">
+  <link rel="canonical" href="https://deungchon-song-room.mapo-room-guide.xyz/posts-2.html">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <style>
+ /* CSS Reset & Variable Definition (Swiss Minimal Style) */
+ :root {
+ --bg-warm: #fbfbf9;
+ --text-dark: #111111;
+ --text-muted: #666666;
+ --accent-red: #ff3b30;
+ --border-color: #e5e5e0;
+ --grid-gap: 24px;
+ --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+ }
+
+ * {
+ box-sizing: border-box;
+ margin: 0;
+ padding: 0;
+ }
+
+ body {
+ background-color: var(--bg-warm);
+ color: var(--text-dark);
+ font-family: var(--font-sans);
+ line-height: 1.6;
+ letter-spacing: -0.02em;
+ -webkit-font-smoothing: antialiased;
+ }
+
+ /* Typography */
+ h1, h2, h3, h4 {
+ font-weight: 700;
+ line-height: 1.15;
+ color: var(--text-dark);
+ }
+
+ p {
+ color: var(--text-muted);
+ font-size: 1rem;
+ line-height: 1.7;
+ }
+
+ a {
+ color: inherit;
+ text-decoration: none;
+ transition: opacity 0.2s ease;
+ }
+
+ a:hover {
+ opacity: 0.7;
+ }
+
+ /* Navigation */
+ .nav-container {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ padding: 24px 40px;
+ border-bottom: 1px solid var(--border-color);
+ background-color: var(--bg-warm);
+ position: sticky;
+ top: 0;
+ z-index: 100;
+ }
+
+ .nav-logo {
+ font-size: 1.25rem;
+ font-weight: 800;
+ letter-spacing: -0.04em;
+ text-transform: uppercase;
+ }
+
+ .nav-menu {
+ display: flex;
+ gap: 32px;
+ align-items: center;
+ }
+
+ .nav-link {
+ font-size: 0.9rem;
+ font-weight: 500;
+ }
+
+ /* Hamburger Menu (Mobile) */
+ .menu-toggle {
+ display: none;
+ flex-direction: column;
+ gap: 6px;
+ cursor: pointer;
+ background: none;
+ border: none;
+ }
+
+ .menu-toggle span {
+ display: block;
+ width: 24px;
+ height: 2px;
+ background-color: var(--text-dark);
+ transition: 0.3s;
+ }
+
+ /* Hero Section */
+ .hero-section {
+ padding: 120px 40px 80px 40px;
+ border-bottom: 1px solid var(--border-color);
+ display: grid;
+ grid-template-columns: 1.2fr 0.8fr;
+ gap: var(--grid-gap);
+ }
+
+ .hero-title {
+ font-size: 3.5rem;
+ font-weight: 800;
+ letter-spacing: -0.05em;
+ word-break: keep-all;
+ }
+
+ .hero-description {
+ font-size: 1.15rem;
+ align-self: flex-end;
+ padding-bottom: 10px;
+ color: var(--text-muted);
+ }
+
+ /* Editorial Grid Layout */
+ .editorial-grid {
+ display: grid;
+ grid-template-columns: repeat(3, 1fr);
+ border-bottom: 1px solid var(--border-color);
+ }
+
+ .grid-cell {
+ padding: 60px 40px;
+ border-right: 1px solid var(--border-color);
+ display: flex;
+ flex-direction: column;
+ justify-content: space-between;
+ min-height: 380px;
+ }
+
+ .grid-cell:last-child {
+ border-right: none;
+ }
+
+ .cell-number {
+ font-size: 0.85rem;
+ font-weight: 600;
+ color: var(--accent-red);
+ margin-bottom: 40px;
+ display: inline-block;
+ }
+
+ .cell-title {
+ font-size: 1.75rem;
+ font-weight: 700;
+ margin-bottom: 20px;
+ letter-spacing: -0.03em;
+ }
+
+ .cell-content {
+ font-size: 0.95rem;
+ color: var(--text-muted);
+ }
+
+ /* Anecdote Section (Personal & Friendly) */
+ .anecdote-section {
+ padding: 100px 40px;
+ background-color: #f5f5f0;
+ border-bottom: 1px solid var(--border-color);
+ display: grid;
+ grid-template-columns: 0.8fr 1.2fr;
+ gap: 60px;
+ }
+
+ .anecdote-badge {
+ font-size: 0.9rem;
+ font-weight: 700;
+ text-transform: uppercase;
+ letter-spacing: 0.05em;
+ color: var(--accent-red);
+ }
+
+ .anecdote-quote {
+ font-size: 1.5rem;
+ font-weight: 600;
+ line-height: 1.6;
+ letter-spacing: -0.03em;
+ color: var(--text-dark);
+ }
+
+ .anecdote-text p {
+ margin-bottom: 24px;
+ font-size: 1.05rem;
+ }
+
+ /* Regional Signal Section */
+ .regional-section {
+ padding: 100px 40px;
+ border-bottom: 1px solid var(--border-color);
+ }
+
+ .section-header {
+ margin-bottom: 60px;
+ }
+
+ .section-subtitle {
+ font-size: 0.85rem;
+ font-weight: 700;
+ color: var(--accent-red);
+ text-transform: uppercase;
+ margin-bottom: 12px;
+ display: block;
+ }
+
+ .section-title {
+ font-size: 2.5rem;
+ letter-spacing: -0.04em;
+ }
+
+ .signal-grid {
+ display: grid;
+ grid-template-columns: repeat(2, 1fr);
+ gap: 40px;
+ }
+
+ .signal-card {
+ border: 1px solid var(--border-color);
+ padding: 40px;
+ background-color: #fff;
+ }
+
+ .signal-card h3 {
+ font-size: 1.35rem;
+ margin-bottom: 16px;
+ }
+
+ /* FAQ Accordion Section */
+ .faq-section {
+ padding: 100px 40px;
+ }
+
+ .faq-list {
+ margin-top: 40px;
+ border-top: 1px solid var(--border-color);
+ }
+
+ .faq-item {
+ border-bottom: 1px solid var(--border-color);
+ padding: 30px 0;
+ }
+
+ .faq-question {
+ font-size: 1.2rem;
+ font-weight: 700;
+ margin-bottom: 15px;
+ color: var(--text-dark);
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ }
+
+ .faq-answer {
+ font-size: 0.95rem;
+ color: var(--text-muted);
+ line-height: 1.7;
+ }
+
+ /* Footer */
+ footer {
+ padding: 60px 40px;
+ border-top: 1px solid var(--border-color);
+ background-color: var(--bg-warm);
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ font-size: 0.85rem;
+ color: var(--text-muted);
+ }
+
+ /* Responsive 768px */
+ @media (max-width: 768px) {
+ .nav-container {
+ padding: 20px;
+ }
+
+ .nav-menu {
+ display: none;
+ flex-direction: column;
+ position: absolute;
+ top: 70px;
+ left: 0;
+ width: 100%;
+ background-color: var(--bg-warm);
+ border-bottom: 1px solid var(--border-color);
+ padding: 20px;
+ gap: 15px;
+ }
+
+ .nav-menu.active {
+ display: flex;
+ }
+
+ .menu-toggle {
+ display: flex;
+ }
+
+ .hero-section {
+ grid-template-columns: 1fr;
+ padding: 80px 20px 40px 20px;
+ }
+
+ .hero-title {
+ font-size: 2.5rem;
+ }
+
+ .editorial-grid {
+ grid-template-columns: 1fr;
+ }
+
+ .grid-cell {
+ border-right: none;
+ border-bottom: 1px solid var(--border-color);
+ padding: 40px 20px;
+ min-height: auto;
+ }
+
+ .grid-cell:last-child {
+ border-bottom: none;
+ }
+
+ .anecdote-section {
+ grid-template-columns: 1fr;
+ padding: 60px 20px;
+ gap: 30px;
+ }
+
+ .regional-section, .faq-section {
+ padding: 60px 20px;
+ }
+
+ .signal-grid {
+ grid-template-columns: 1fr;
+ gap: 20px;
+ }
+
+ footer {
+ flex-direction: column;
+ gap: 20px;
+ text-align: center;
+ padding: 40px 20px;
+ }
+ }
+ </style>
+  <meta property="og:title" content="글 목록 (2/2) · t3b01-dc-coin-guide">
+  <meta property="og:description" content="t3b01-dc-coin-guide에 올라온 글 목록입니다.">
+  <meta property="og:url" content="https://deungchon-song-room.mapo-room-guide.xyz/posts-2.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+</head>
+<body>
+  <div class="container">
+    <header>
+ <nav class="nav-container">
+ <div class="nav-logo">
+ <a href="/">DEUNGCHON COIN</a>
+ </div>
+ <button class="menu-toggle" id="mobile-menu-btn" aria-label="메뉴 열기">
+ <span></span>
+ <span></span>
+ <span></span>
+ </button>
+ <div class="nav-menu" id="nav-menu-list">
+ <a href="/" class="nav-link">홈</a>
+ <a href="/guide" class="nav-link">가이드</a>
+ <a href="/info" class="nav-link" style="color: var(--accent-red); font-weight: 700;">정보</a>
+ <a href="/features" class="nav-link">시설 특징</a>
+ </div>
+ </nav>
+ </header>
+    <main>
+      <h1>글 목록</h1>
+      <p>전체 31개 · 2/2 페이지</p>
+      <ul class="post-list">
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0331.html">등촌 코인노래방 가이드 따라 가보는 연남 클럽 추천정보</a>
+        <p class="post-item__summary">활기찬 분위기의 연남동에서 클럽을 제대로 즐기려면 몇 가지 필수적인 조건을 미리 갖추는 것이 좋습니다. 대중교통 이용 편의성이나 입구에서의 복장 규정은 기본적으로 확인해야 할 사항입니다. 등촌 코인</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0332.html">등촌 코인노래방 가이드 확인하고 고르는 합정 셔츠룸 추천정보</a>
+        <p class="post-item__summary">여러분은 유흥 공간을 선택할 때 무엇을 가장 우선순위로 두고 결정을 내리시나요. 단순히 시설의 외관이나 분위기만을 보고 판단하기에는 고려해야 할 변수가 너무나도 많습니다. 등촌 코인노래방 가이드 문</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0333.html">등촌 코인노래방 가이드 보고 익히는 공덕 가라오케 추천정보</a>
+        <p class="post-item__summary">성공적인 유흥 경험을 위해서는 체계적인 절차를 밟아 사전 조사를 수행해야 합니다. 1단계로 지역 커뮤니티의 동향을 파악하고, 2단계로 여러 업체를 리스트업한 뒤, 마지막 3단계로 실제 방문 후기를 </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0334.html">등촌 코인노래방 가이드 활용해 상수 마사지 추천정보 비교하기</a>
+        <p class="post-item__summary">등촌 코인노래방 가이드 정보를 찾는 이들이라면 효율적인 소비를 지향하는 경우가 많습니다. 이러한 소비 패턴은 홍대 인근이나 상수 지역에서 힐링 공간을 찾을 때도 유사하게 적용되곤 합니다. 단순히 저</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0335.html">등촌 코인노래방 가이드 및 실패 없는 망원 노래방 추천정보</a>
+        <p class="post-item__summary">최근 많은 이들이 즐겨 찾는 등촌 코인노래방 가이드 내용을 살펴보면 소규모 공간의 효율적인 이용법이 자주 등장합니다. 하지만 주말 저녁 지인들과 함께 마포구 망원 지역에서 넓은 방을 확보하려 할 때</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0336.html">등촌 코인노래방 가이드 기반 홍대 노래방 추천정보 및 위치</a>
+        <p class="post-item__summary">지역 맞춤형 길 찾기를 다루는 등촌 코인노래방 가이드 지침을 살펴보면 주변 교통 인프라와의 연계성이 핵심임을 알 수 있습니다. 문화와 유행의 중심지인 마포구 홍대 근처에서 모임을 가질 때도 업소의 </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0337.html">등촌 코인노래방 가이드 및 첫 방문자를 위한 공덕 셔츠룸 추천정보</a>
+        <p class="post-item__summary">비즈니스 바이어와의 중요한 만찬을 마친 후 격식 있는 대접을 위해 마포구 공덕 인근의 유흥 공간으로 자리를 옮기는 상황을 가정해 볼 수 있습니다. 사전 조율 없이 현장을 방문했다가 정산 단계에서 예</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0338.html">등촌 코인노래방 가이드 무색한 연남 유흥 추천정보의 진실</a>
+        <p class="post-item__summary">유흥 문화는 단순히 무절제한 소비라는 오해를 받는 경우가 많지만, 사실 적절한 시간대에 즐기는 휴식은 일상의 활력이 됩니다. 많은 사람이 등촌 코인노래방 가이드 수준의 가벼운 놀이 문화와 심도 있는</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0339.html">등촌 코인노래방 가이드 너머 마곡 가라오케 추천정보 분석</a>
+        <p class="post-item__summary">완벽한 가라오케 방문을 위해서는 인원 구성, 예산 설정, 그리고 방문 목적이라는 삼박자가 고루 충족되어야 합니다. 등촌 코인노래방 가이드 수준의 가벼운 모임과는 달리, 격식 있는 공간에서는 더욱 세</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0340.html">등촌 코인노래방 가이드 보는 눈으로 마곡 유흥 추천정보 확인</a>
+        <p class="post-item__summary">혹시 여러분은 업체 정보를 찾을 때 단순히 검색 결과 상단에 나오는 곳을 선택하고 있지는 않습니까? 등촌 코인노래방 가이드가 주는 편리함도 좋지만, 마곡 유흥 지역의 깊이 있는 정보를 얻으려면 좀 </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0341.html">등촌 코인노래방 가이드 활용해 찾는 합정 노래방 추천정보</a>
+        <p class="post-item__summary">등촌 코인노래방 가이드 방식을 응용하면 합정 지역에서 내게 맞는 장소를 훨씬 수월하게 찾을 수 있습니다. 우선 노래방을 방문하기 전, 온라인 플랫폼에 게시된 정보의 신뢰도를 판별하는 과정이 가장 중</p>
+      </li>
+      </ul>
+    <nav class="pager">
+      <a class="pager__link" href="posts.html">1</a>
+      <span class="pager__current">2</span>
+    </nav>
+    </main>
+  </div>
+</body>
+</html>
